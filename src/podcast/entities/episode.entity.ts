@@ -33,6 +33,5 @@ export class Episode extends CoreEntity {
 
   @ManyToMany(() => User, user => user.watchedEpisodes, { nullable: true })
   @Field(type => [User], { nullable: true })
-  @JoinTable()
   watchers?: User[];
 }

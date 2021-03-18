@@ -165,6 +165,7 @@ export class PodcastsService {
         where: {
           title: Raw(title => `${title} LIKE '%${query}%'`),
         },
+        relations: ['episodes'],
         skip: (page - 1) * pageSize,
         take: pageSize,
       });
@@ -372,6 +373,9 @@ export class PodcastsService {
         user.watchedEpisodes.push(episode);
       }
       this.userRepository.save(user);
+      return {
+        ok: true,
+      };
     } catch {
       return {
         ok: false,

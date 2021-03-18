@@ -1,4 +1,4 @@
-import { Field, InputType, Int } from '@nestjs/graphql';
+import { Field, InputType, Int, ObjectType } from '@nestjs/graphql';
 import { CoreOutput } from './output.dto';
 
 @InputType()
@@ -7,5 +7,5 @@ export class MarkEpisodeAsPlayedInput {
   episodeId: number;
 }
 
-@InputType()
+@ObjectType()
 export class MarkEpisodeAsPlayedOutput extends CoreOutput {}
